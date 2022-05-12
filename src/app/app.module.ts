@@ -17,6 +17,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
 import { PostsComponent } from './pages/posts/posts.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { PostsComponent } from './pages/posts/posts.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
