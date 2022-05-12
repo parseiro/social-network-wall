@@ -16,13 +16,15 @@ import {CreateAccountComponent} from "./pages/create-account/create-account.comp
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
+import { PostsComponent } from './pages/posts/posts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
     LoginComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
