@@ -34,10 +34,7 @@ export class LoginComponent implements OnInit {
           this.snackBar.open('Account does not exist', 'ok');
         } else {
           if (value[0].password === this.loginForm.value['password']) {
-            console.log("password match");
-            this.snackBar.open('Login successful', '', { duration: 1000});
-            this.userService.user = value[0];
-            localStorage.setItem('user', JSON.stringify(value[0]));
+            this.userService.login(value[0]);
             this.router.navigate(['/posts']);
           } else {
             console.log("wrong password")
@@ -47,5 +44,4 @@ export class LoginComponent implements OnInit {
       })
       .catch(reason => console.log(`Error: ${reason}`));
   }
-
 }

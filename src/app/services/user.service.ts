@@ -62,4 +62,10 @@ export class UserService {
     this.snackBar.open('You have been logged out', '',{ duration: 1000})
     this.router.navigate(['/login']);
   }
+
+  public login(user: any) {
+    this.snackBar.open('Login successful', '', { duration: 1000});
+    this.user = user;
+    localStorage.setItem('user', JSON.stringify(user));
+  }
 }
