@@ -13,6 +13,7 @@ import {MatSliderModule} from "@angular/material/slider";
 
 import { LoginComponent } from './pages/login/login.component';
 import {CreateAccountComponent} from "./pages/create-account/create-account.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import {CreateAccountComponent} from "./pages/create-account/create-account.comp
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSliderModule
+    MatSliderModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
