@@ -1,1 +1,44 @@
-<p>login works!</p>
+<div class="container-sm">
+  <div class="shadow p-4 mb-5 bg-body text-center">
+
+    <div class="mat-display-2">Login</div>
+    <form>
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput/>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput/>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+
+
+    <div class="row justify-content-center">
+      <div class="col-3">
+        <button mat-raised-button class="login-button" color="primary">Login</button>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-3">
+        <p class="my-2">OR</p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <button routerLink="/create-account" mat-stroked-button>Create account</button>
+      </div>
+    </div>
+
+
+  </div>
+</div>
