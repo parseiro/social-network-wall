@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "email": "asd@asd",
+      "username": "asd",
+      "password": "adasdaasd",
+      "id": 1
+    }
+  ],
+  "posts": []
+}

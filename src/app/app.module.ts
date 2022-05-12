@@ -14,6 +14,8 @@ import {MatSliderModule} from "@angular/material/slider";
 import { LoginComponent } from './pages/login/login.component';
 import {CreateAccountComponent} from "./pages/create-account/create-account.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MatInputModule,
     MatSliderModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
