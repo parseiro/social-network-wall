@@ -19,6 +19,7 @@ import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
 import { PostsComponent } from './pages/posts/posts.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {MatIconModule} from "@angular/material/icon";
     HttpClientModule,
     MatSnackBarModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

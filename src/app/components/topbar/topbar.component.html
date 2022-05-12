@@ -1,9 +1,19 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <h1 class="branding">SBook</h1>
-    <span class="menu-spacer"></span>
+    <!--<span class="menu-spacer border border-1 border-danger"></span>-->
     <div>
       <a mat-raised-button routerLink="/posts">posts</a>
+    </div>
+    <div class="d-flex flex-row-reverse align-items-center">
+      <button mat-icon-button>
+        <button mat-icon-button [mat-menu-trigger-for]="menu">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
+      </button>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
