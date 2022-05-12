@@ -7,12 +7,14 @@ import { TopbarComponent } from './components/topbar/topbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoginComponent } from './pages/login/login.component';
+import {CreateAccountComponent} from "./pages/create-account/create-account.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
-    LoginComponent
+    LoginComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,
