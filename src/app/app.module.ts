@@ -6,10 +6,13 @@ import { AppComponent } from './app.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { LoginComponent } from './pages/login/login.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    TopbarComponent
+    TopbarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
