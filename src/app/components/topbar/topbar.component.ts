@@ -12,7 +12,7 @@ export class TopbarComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private userService: UserService
+    public userService: UserService
   ) { }
 
   ngOnInit(): void {

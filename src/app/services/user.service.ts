@@ -44,7 +44,7 @@ export class UserService {
     });
   }
 
-  public isLogged() {
+  public isLogged(): boolean {
     if (this.user == undefined || this.user == null) {
       const str: string | null = localStorage.getItem('user');
       if (str == null) {
