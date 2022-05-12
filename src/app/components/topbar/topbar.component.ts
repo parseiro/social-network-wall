@@ -12,16 +12,13 @@ export class TopbarComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private userService: UserService,
-    private snackBar: MatSnackBar
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
   }
 
   logout() {
-    this.userService.user = undefined;
-    this.router.navigate(['/login']);
-    this.snackBar.open('You have been logged out', '',{ duration: 1000})
+    this.userService.logout();
   }
 }
