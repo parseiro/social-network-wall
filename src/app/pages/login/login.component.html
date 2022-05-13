@@ -1,1 +1,57 @@
+<<<<<<< HEAD
 <p>login works!</p>
+=======
+<div class="container-sm">
+  <div class="shadow p-4 mb-5 bg-body text-center">
+
+    <div class="mat-display-2">Login</div>
+    <form [formGroup]="loginForm">
+      <div class="row justify-content-center mb-2">
+        <div class="col-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email"/>
+            <mat-error *ngIf="loginForm.controls['email'].invalid">
+              {{loginForm.controls['email'].hasError('required') ? 'Email is required' : 'Please enter a valid email'}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mb-3">
+        <div class="col-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password"/>
+            <mat-error *ngIf="loginForm.controls['password'].invalid">
+              {{loginForm.controls['password'].hasError('required') ? 'Password is required' : 'The password must have between 6 and 25 characters'}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+
+    <div class="row justify-content-center">
+      <div class="col-3">
+        <button mat-raised-button class="login-button" color="primary"
+                [disabled]="loginForm.invalid"
+                (click)="login()">
+          Login
+        </button>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-3">
+        <p class="my-2">OR</p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <button routerLink="/create-account" mat-stroked-button>Create account</button>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+>>>>>>> release/1.0

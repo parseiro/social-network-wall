@@ -1,0 +1,65 @@
+<div class="container-sm">
+  <div class="shadow p-4 mb-5 bg-body text-center">
+
+    <div class="mat-display-2">Create Account</div>
+    <form [formGroup]="createAccountForm">
+      <div class="row justify-content-center mb-2">
+        <div class="col-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Enter your username</mat-label>
+            <input matInput formControlName="username"/>
+            <mat-error *ngIf="createAccountForm.controls['username'].invalid">
+              {{createAccountForm.controls['username'].hasError('required') ? 'A username is required' : 'The username must have at most 10 characters' }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mb-2">
+        <div class="col-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Your best email address</mat-label>
+            <input matInput formControlName="email"/>
+            <mat-error *ngIf="createAccountForm.controls['email'].invalid">
+              {{createAccountForm.controls['email'].hasError('required') ? 'Email is required' : 'Enter a valid email' }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mb-3">
+        <div class="col-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Choose a password</mat-label>
+            <input type="password" matInput formControlName="password"/>
+            <mat-error *ngIf="createAccountForm.controls['password'].invalid">
+              {{createAccountForm.controls['password'].hasError('required') ? 'Password is required' : 'The password must have between 6 and 25 characters'}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+
+    <div class="row justify-content-center">
+      <div class="col-3">
+        <button mat-raised-button
+                class="login-button" color="primary"
+                (click)="create()"
+                [disabled]="createAccountForm.invalid"
+        >Create Account</button>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-3">
+        <p class="my-2">OR</p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <button routerLink="/login" mat-stroked-button>Login</button>
+      </div>
+    </div>
+
+
+  </div>
+</div>
