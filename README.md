@@ -1,5 +1,7 @@
 # SocialNetworkWall
 
+This is an example social network made with Angular 13, Angular Material (plus bootstrap utilities) and Json-server (mock backend).
+
 ## Run npm install
 
 ## Run json-server in a terminal window
