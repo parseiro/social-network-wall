@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {PostService} from "../../services/post.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {IComment, IPost, IUser} from "../../model/post";
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-posts',
@@ -35,26 +36,40 @@ export class PostsComponent implements OnInit {
 
   public getPosts() {
     this.postService.getPosts()
-      .then((value: any) => {
+      .then(value => {
         this.posts = value.reverse();
-        const userIds = this.posts.map(item => item.userId);
-        userIds.forEach(id => {
+
+        const postUserIds = this.posts.map(item => item.userId);
+        // console.log(postUserIds)
+
+        const commentUserIds = this.posts.flatMap(item => item.comments).map(item => item.userId)
+        // console.log(commentUserIds)
+
+        const uniqueUserIds = _.uniq(_.concat(postUserIds, commentUserIds));
+        // console.log(uniqueUserIds)
+
+        uniqueUserIds.forEach(id => {
           if (this.usernames[id] == undefined) {
-            this.userService.getUsernameById(id).then(username => this.usernames[id] = username);
+            this.userService.getUserById(id)
+              .subscribe({
+                next: user => {
+                  // console.log(`Setando this.username[${id}] = ${user.username}`)
+                  this.usernames[id] = user.username;
+                },
+                error: err => console.log(err)
+              });
           }
         });
-
-      })
-      .catch(reason => console.log(reason));
+      });
   }
 
   comment(postId: number, postIndex: number): void {
-    const currentUserId = this.userService.user?.userId;
+    const currentUserId = this.userService.user?.id;
     if (currentUserId == undefined) return;
     // const userId: number = currentUserId;
 
     this.posts
-      .filter(post => post.postId === postId)
+      .filter(post => post.id === postId)
       .forEach((post, index) => {
         const commentObj: IComment = {
           userId: currentUserId,
@@ -67,10 +82,11 @@ export class PostsComponent implements OnInit {
   }
 
   post(): void {
-    if (this.userService.user == undefined) return;
+    const currentUserId = this.userService.user?.id;
+    if (currentUserId == undefined) return;
 
     const newPost: IPost = new IPost();
-    newPost.userId = this.userService.user.userId;
+    newPost.userId = currentUserId;
     newPost.text = this.newPost;
 
     this.postService.createNewPost(newPost)
@@ -82,10 +98,10 @@ export class PostsComponent implements OnInit {
   }
 
   toggleLike(postId: number): void {
-    const userId = this.userService.user?.userId;
+    const userId = this.userService.user?.id;
     if (userId == undefined) return;
 
-    const post = this.posts.find(item => item.postId === postId);
+    const post = this.posts.find(item => item.id === postId);
     if (post == undefined) return;
 
     const likeIndex = post.likes.findIndex(like => like.userId === userId);
@@ -101,10 +117,10 @@ export class PostsComponent implements OnInit {
   }
 
   didILikeThatPost(postId: number): boolean {
-    const userId = this.userService.user?.userId;
+    const userId = this.userService.user?.id;
     if (userId == undefined) return false;
 
-    const post = this.posts.find(item => item.postId === postId);
+    const post = this.posts.find(item => item.id === postId);
     if (post == undefined) return false;
 
     const likesFromThisUser = post.likes.find(like => like.userId === userId);

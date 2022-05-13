@@ -21,8 +21,8 @@
     <p>{{post.text}}</p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button mat-icon-button disableRipple="true" (click)="toggleLike(post.postId)">
-      <mat-icon> {{didILikeThatPost(post.postId) ? 'favorite' : 'favorite_border'}}</mat-icon>
+    <button mat-button mat-icon-button disableRipple="true" (click)="toggleLike(post.id)">
+      <mat-icon> {{didILikeThatPost(post.id) ? 'favorite' : 'favorite_border'}}</mat-icon>
     </button>
     <span>{{post.likes.length}} liked it</span>
   </mat-card-actions>
@@ -30,7 +30,7 @@
     <div class="comments">
       <div class="title">Comments</div>
       <p *ngFor="let comment of post.comments">
-        <b>{{usernames[post.userId]}}</b> {{comment.comment}}
+        <b>{{usernames[comment.userId]}}</b> {{comment.comment}}
       </p>
     </div>
   </div>
@@ -38,6 +38,6 @@
     <mat-form-field class="comment-form-field">
       <input type="text" matInput [(ngModel)]="commentText[postIndex]" placeholder="Add a comment">
     </mat-form-field>
-    <button (click)="comment(post.postId, postIndex)" mat-button>Comment</button>
+    <button (click)="comment(post.id, postIndex)" mat-button>Comment</button>
   </div>
 </mat-card>

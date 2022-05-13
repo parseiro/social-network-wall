@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {IUser, IUserWithoutPass} from "../model/post";
+import {Observable, Observer} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -63,12 +64,16 @@ export class UserService {
     localStorage.setItem('user', JSON.stringify(user));
   }
 
-  getUsernameById(userId: number): Promise<string> {
+/*  getUserById(userId: number): Promise<IUser> {
     return new Promise((resolve, reject) => {
-      this.http.get(`http://localhost:3000/users?userId=${userId}`).subscribe(
+      this.http.get(`http://localhost:3000/users/${userId}`).subscribe(
         (res: any) => resolve(res),
         (err: any) => reject(err)
       )
     });
+  }*/
+
+  getUserById(userId: number): Observable<IUser> {
+    return this.http.get<IUser>(`http://localhost:3000/users/${userId}`);
   }
 }

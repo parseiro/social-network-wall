@@ -12,7 +12,7 @@ export class PostService {
   ) {
   }
 
-  public getPosts() {
+  public getPosts(): Promise<Array<IPost>> {
     return new Promise((resolve, reject) => {
       this.http.get(`http://localhost:3000/posts`).subscribe(
         (res: any) => resolve(res),
@@ -23,7 +23,7 @@ export class PostService {
 
   updatePost(post: IPost) {
     return new Promise((resolve, reject) => {
-      this.http.put(`http://localhost:3000/posts/${post.postId}`, post).subscribe(
+      this.http.put(`http://localhost:3000/posts/${post.id}`, post).subscribe(
         (res: any) => resolve(res),
         (err: any) => reject(err)
       )

@@ -8,7 +8,7 @@ export interface IComment {
 }
 
 export class IPost {
-  public postId: number = 0;
+  public id: number = 0;
   public userId: number = 0;
   public text: string = '';
   public imageURL: string = '';
@@ -17,7 +17,7 @@ export class IPost {
 }
 
 export interface IUser {
-  userId: number;
+  id: number;
   username: string;
   email: string;
   password: string;
