@@ -1,10 +1,12 @@
 # SocialNetworkWall
 
-## Run json-server 
+## Run npm install
+
+## Run json-server in a terminal window
 
 `json-server.cmd --watch .\mock-api\data.json`
 
-## Run the server
+## Run the server in another terminal window
 
 `npm start`
 
