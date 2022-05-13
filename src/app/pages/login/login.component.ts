@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   });
 
   login() {
-    this.userService.getUser(this.loginForm.value.email)
+    this.userService.getUserByEmail(this.loginForm.value.email)
       .then((value: any) => {
         if (value.length == 0) {
           console.log("account does not exist");

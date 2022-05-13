@@ -12,7 +12,7 @@ export class TopbarComponent implements OnInit {
 
   constructor(
     private router: Router,
-    public userService: UserService
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -20,5 +20,9 @@ export class TopbarComponent implements OnInit {
 
   logout() {
     this.userService.logout();
+  }
+
+  isLogged() {
+    return this.userService.isLogged();
   }
 }

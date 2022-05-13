@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {UserService} from "../../services/user.service";
 import {Router} from "@angular/router";
+import {IUser} from "../../model/post";
 
 @Component({
   selector: 'app-create-account',
@@ -29,7 +30,7 @@ export class CreateAccountComponent implements OnInit {
     // console.log(this.createAccountForm.value);
 
      this.userService.createNewUser(this.createAccountForm.value)
-       .then(value => {
+       .then((value: IUser) => {
          // console.log(`Value: ${value}`);
          this.userService.user = value;
          this.router.navigate(['/posts']);

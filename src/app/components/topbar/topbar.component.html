@@ -12,10 +12,10 @@
         </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item
-                  *ngIf="!userService.isLogged()"
+                  *ngIf="!isLogged()"
                   routerLink="/login">Login</button>
           <button mat-menu-item
-                  *ngIf="userService.isLogged()"
+                  *ngIf="isLogged()"
                   (click)="logout()">Logout</button>
         </mat-menu>
       </button>
